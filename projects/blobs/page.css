@@ -1,6 +1,6 @@
 #column {
 	padding: 15px;
-  padding-top: 2.5%;
+  	padding-top: 2.5%;
 	margin: 0px auto;
 	display: flex;
 	flex-direction: row;
@@ -43,7 +43,7 @@
 
 .label {
 	font-family: 'Spartan', sans-serif;
-  color: #CED4DA;
+ 	color: #CED4DA;
 
 }
 
@@ -100,7 +100,7 @@
 
 .aof-population {
 	font-family: 'Spartan', sans-serif;
-  color: #CED4DA;
+  	color: #CED4DA;
 }
 
 summary {
