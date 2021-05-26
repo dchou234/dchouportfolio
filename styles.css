@@ -1,0 +1,89 @@
+body {
+    background-color: #121212;
+    margin: 0px;
+}
+
+.head {
+    font-size: 72px;
+    font-weight: bold;
+    font-family: 'Spartan', sans-serif;
+    color: #CED4DA;
+    text-align: center;
+    margin: 0px;
+    padding: 0px;
+    padding-top: 2.5%;
+}
+
+.sub {
+    font-size: 32px;
+    font-family: 'Spartan', sans-serif;
+    color: #CED4DA;
+    text-align: center;
+    margin: 0px;
+    padding: 0px;
+    padding-top: 2.5%;
+}
+
+nav.top-nav{
+    padding: 0;
+    overflow: hidden;
+    background-color: #2C2C2EFF;
+}
+
+nav.top-nav a{
+    float: left;
+    text-align: center;
+    font-size: 20px;
+    font-family: 'Spartan', sans-serif;
+    color: #CED4DA;
+    text-decoration: none;
+    margin: 0px;
+    padding: 16px 16px;
+}
+
+.dropdown {
+    float: left;
+    overflow: hidden;
+}
+
+.dropdown .dd-button {
+    font-size: 20px;
+    font-family: 'Spartan', sans-serif;
+    color: #CED4DA;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    background-color: inherit;
+    margin: 0;
+    padding: 16px 16px;
+}
+
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #2C2C2EFF;
+    z-index: 1;
+    width: 15.76em;
+}
+
+.dropdown-content a {
+    color: #121417;
+    text-align: left;
+    text-decoration: none;
+    float: none;
+    display: block;
+    width: 11em;
+}
+
+.dropdown-content a:hover {
+    background-color: #343A40;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dd-button {
+    background-color: #2C2C2EFF;
+}

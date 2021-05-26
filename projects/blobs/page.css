@@ -1,0 +1,108 @@
+#column {
+	padding: 15px;
+  padding-top: 2.5%;
+	margin: 0px auto;
+	display: flex;
+	flex-direction: row;
+	text-align: center;
+}
+
+
+#app {
+	margin-left: 14%;
+	display: flex;
+	border-radius: 7px;
+	box-shadow: 0px 0px 0px 10px #6C757D;
+}
+
+#controls {
+	margin-left: 7%;
+	padding: 10px;
+	border-radius: 7px;
+	background-color: #2C2C2EFF;
+	box-shadow: 0px 0px 0px 10px #6C757D;
+	width: 25%;
+}
+
+
+.contrast {
+	color: #CED4DA;
+}
+
+.title {
+	font-family: sans-serif;
+	font-weight: bold;
+	font-size: 16px;
+}
+
+.ultradetail  {
+	color: #CED4DA;
+	font-style: italic;
+	font-size: 60%;
+}
+
+.label {
+	font-family: 'Spartan', sans-serif;
+  color: #CED4DA;
+
+}
+
+.slider {
+	position: relative;
+	appearance: slider-horizontal;
+    color: -internal-light-dark(rgb(16, 16, 16), rgb(255, 255, 255));
+    cursor: default;
+    padding: initial;
+    border: initial;
+    margin: 2px;
+}
+
+.slider-cell {
+	position: relative;
+}
+
+.slider-val {
+	position: absolute;
+	top: -3px;
+	font-family: 'Spartan', sans-serif;
+    color: #CED4DA;
+	font-style: italic;
+	font-size: 60%;
+}
+
+.emoji-button {
+	text-align: center;
+	width: 2em;
+	height: 2em;
+	border-width: 0px;
+	border-radius: 10em;
+	padding: 0px;
+	background-color: white;
+	box-shadow: 0px 1px 3px rgba(0, 0, 0, .7);
+}
+/* The button when pressed */
+.emoji-button:active {
+	box-shadow: inset 0px 1px 2px rgba(0, 0, 0, .5);
+}
+
+.emoji-button.toggled {
+	background-color: grey;
+}
+
+
+.aof-sliders {
+	padding: 2px;
+	margin: 2px;
+	border-radius: 15px;
+	background-color: hsla(0, 0%, 90%, 1);
+	box-shadow: inset 0px 2px 3px rgba(0, 0, 0, .5);
+}
+
+.aof-population {
+	font-family: 'Spartan', sans-serif;
+  color: #CED4DA;
+}
+
+summary {
+	padding-top: 10px;
+}

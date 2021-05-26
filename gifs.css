@@ -1,0 +1,24 @@
+#animations {
+  padding: 20px;
+  padding-top: 2.5%;
+	margin: 0px auto;
+	max-width: 100%;
+	text-align: center;
+}
+
+.swatch {
+  width: 300px;
+	height: 300px;
+	display: inline-block;
+	margin: 6px 24px;
+}
+
+.swatch-title {
+    font-size: 25px;
+    font-family: 'Spartan', sans-serif;
+    color: #CED4DA;
+
+    text-align: center;
+    margin: 0px;
+    padding: 0px;
+}

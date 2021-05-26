@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<html>
+	<head>
+		<title>Mini KidPix</title>
+
+	<link rel="stylesheet" href="../../styles.css">
+	<link rel="stylesheet" href="page.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Spartan">
+	<script src="../../libraries/p5.min.js"></script>
+	<script src="vector.js"></script>
+	<script src="tools.js"></script>
+	<script src="app.js"></script>
+
+
+</head>
+<body>
+		<nav class="top-nav">
+				<a href="../../index.html">Home</a>
+				<div class="dropdown">
+						<button class="dd-button">Previous Projects</button>
+						<div class="dropdown-content">
+								<a href="index.html">Drawing</a>
+								<a href="../blobs/index.html">Random Blob Generator</a>
+						</div>
+				</div>
+		</nav>
+
+		<h2 class="sub"> Mini Kid Pix </h2>
+		<div id="p5canvas"></div>
+		<div id="toolbar">
+			<button onclick="tool.mode='clearBlack'">Black BG</button>
+			<button onclick="tool.mode='clearWhite'">White BG</button>
+			<button onclick="tool.mode='circlePencil'">Circle</button>
+			<button onclick="tool.mode='normalPencil'">Pen</button>
+			<button onclick="tool.mode='space'">Space</button>
+			<button onclick="tool.mode='comet'">Comet</button>
+
+			<div>
+				<input type="color" id="color0" onchange="tool.color0 = hexToHSL(this.value)">
+				<input type="color" id="color1" onchange="tool.color1 = hexToHSL(this.value)">
+				<input type="range" min="5" max="100" value="10" class="slider" onchange="tool.size = this.value*.1">
+			</div>
+		</div>
+
+</body>
+</html>
