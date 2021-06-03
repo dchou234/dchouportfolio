@@ -2,7 +2,7 @@ class EeveeBot {
 	constructor() {
 		this.razzBerries = 10
 		this.money = 2000
-		this.battleTime = 20;
+		this.battleTime = 40;
 
 		this.eeveePics =
 		[
@@ -41,6 +41,10 @@ class EeveeBot {
 	}
 
 	respondTo(s) {
+		let veeHP = document.getElementById('hp')
+		let opponentHP = document.getElementById('eHP')
+
+
 		if(s.toLowerCase().includes("hello")){
 			let chance = Math.floor(Math.random()*this.eeveePics.length)
 			this.post(this.grammar.flatten("#greeting#"))
@@ -52,6 +56,13 @@ class EeveeBot {
 				return "No more razz berries, buy more."
 			this.razzBerries -= 1
 			this.post(this.grammar.flatten("#eating#"))
+			if(veeHP.value < 100){
+				this.post("Eevee's HP has been restored by 10!")
+				veeHP.value += 10
+				if(veeHP.value > 100){
+					veeHP.value = 100
+				}
+			}
 			return this.eat[0]
 		}
 
@@ -78,35 +89,71 @@ class EeveeBot {
 		if(s.toLowerCase().includes("battle")){
 			this.post("You and Eevee find a strong trainer!")
 			this.post(this.battle[0])
-			let chance = Math.random()
 
 			let finish = false
 
+
 			let interval = setInterval(() => {
-				this.battleTime -= Math.floor(Math.random() * 10)
-				if (this.battleTime < 0) {
+				this.battleTime -= 5
+				if (this.battleTime < 0 || opponentHP >= 100 || veeHP.value <= 0) {
 					clearInterval(interval)
-					this.battleTime = 20
-					if(chance < 0.3){
+					this.battleTime = 40
+
+					if(veeHP.value <= 0){
 						if(this.money < 500){
-							this.post("You don't have enough money! You give the rest of your money to the trainer and go into debt.")
+							this.post("Eevee took too much damage and fainted!")
+							this.post("You don't have enough money! You give the rest of your money to the trainer and go into debt to make the difference.")
 							this.money -= 500
+							this.post("You revive Eevee with half its HP.")
+							veeHP.value = 50
+							opponentHP.value = 0
 							this.post(this.lose[0])
 						}
-						this.post("You have unfortunately lost, and give 500 Pokedollars to the trainer")
+						this.post("Eevee took too much damage and fainted!")
+						this.post("You have unfortunately lost, and give 500 Pokedollars to the trainer.")
 						this.money -= 500
+						this.post("You revive Eevee with half its HP.")
+						veeHP.value = 50;
 						this.post(this.lose[0])
 					}
 
-					else{
-						this.post("You won! The trainer gives you 700 Pokedollars")
+					else if(opponentHP >= 100){
+						this.post("Your opponent's Pokemon fainted!")
+						this.post("You won! The trainer gives you 700 Pokedollars.")
 						this.money += 700;
+						this.post("Eevee has been fully restored!")
+						veeHP.value = 100;
+						opponentHP.value = 0;
+						this.post(this.win[0])
+					}
+
+					else{
+						this.post("The battle is inconclusive! The trainer gives you 200 Pokedollars.")
+						this.money += 200;
+						this.post("Eevee restores some HP.")
+						veeHP.value += (100 - veeHP.value) / 2;
+						opponentHP.value = 0;
 						this.post(this.win[0])
 					}
 					finish = true
 				}
 				else {
-					this.post(this.grammar.flatten("#fighting#"))
+					let chance = Math.random()
+					if((this.battleTime / 5) % 2 == 0){
+						this.post(this.grammar.flatten("#fighting#"))
+						opponentHP.value += (Math.random()*5 + 25)
+					}
+					else{
+						let dodge = Math.random();
+						if(dodge < 0.2){
+							this.post(this.grammar.flatten("#dodge#"))
+							opponentHP.value += 5
+						}
+						else{
+							this.post(this.grammar.flatten("#opponentfight#"))
+							veeHP.value -= (Math.random()*5 + 20)
+						}
+					}
 				}
 			}, 500)
 
@@ -119,4 +166,6 @@ class EeveeBot {
 		return(this.grammar.flatten("#randomaction# #requests#"))
 
 	}
+
 }
+

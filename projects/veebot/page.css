@@ -1,6 +1,27 @@
+#eeveeHP{
+	padding: 2px;
+	margin: 0px auto;
+	flex-direction: row;
+	justify-content: center;
+	column-gap: 5px;
+	align-items: center;
+	text-align: center;
+	display: flex;
+}
+
+#opponentHP{
+	padding: 2px;
+	margin: 0px;
+	flex-direction: row;
+	justify-content: center;
+	column-gap: 5px;
+	align-items: center;
+	text-align: center;
+	display: flex;
+}
+
 #column {
-	padding: 20px;
-    padding-top: 2%;
+	padding: 10px;
 	margin: 0px auto;
 	flex-direction: column;
 	justify-content: center;
@@ -9,7 +30,6 @@
 	display: flex;
 }
 
-
 #chatui{
 	position: relative;
 }
@@ -17,7 +37,6 @@
 #app {
 	position: relative;
 }
-
 
 #infotext{
 	position: relative;
@@ -35,6 +54,7 @@
 	margin: auto;
 }
 
+
 button {
 	margin-top: 5px;
 	text-align: center;
@@ -50,4 +70,13 @@ input {
 	padding: 6px;
 	margin-left: 8px;
     resize: none;
+}
+
+progress{
+	width: 400px;
+}
+
+p{
+	font-family: 'Spartan', sans-serif;
+	color: #CED4DA;
 }

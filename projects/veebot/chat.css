@@ -63,21 +63,6 @@
 	border-radius: 20px 20px 20px 0px;
 }
 
-.chat-row.chat-msg-alert {
-	color:red;
-	justify-content: space-around;
-}
-
-.chat-row.chat-msg-alert .chat-message {
-	border: none;
-	border-radius: 10px;
-	background-color: hsla(0, 100%, 90%, 1);
-	
-}
-
-
-
-
 .chat-widget>.controls {
 	
 	height: 40px;

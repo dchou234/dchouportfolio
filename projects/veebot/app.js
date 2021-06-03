@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function(){
 		<div id="app">
 
 		<div id="chatui">
-		<div id="infotext"> You currently have <b>{{bot.razzBerries}}</b> Razz berries and <b>{{bot.money}}</b> PokeDollars. </div>
+			<div id="infotext"> You currently have <b>{{bot.razzBerries}}</b> Razz berries and <b>{{bot.money}}</b> PokeDollars. </div>
 			<chat-widget :messages="messages" />
 
 			<div id="controls">

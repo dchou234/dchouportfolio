@@ -24,7 +24,7 @@ let eeveeGrammar = {
 
 	 "highFive":[
 		 "*gives a highfive*",
-		 "*looks proud of themself*",
+		 "*looks smug*",
 		 "VEE"
 	 ],
 
@@ -47,9 +47,19 @@ let eeveeGrammar = {
 		 "Eevee uses Swift!",
 		 "Eevee uses Take Down!",
 		 "Eevee uses Tackle!",
-		 "Eevee uses Bite!",
-		 "Eevee takes damage from the opponent!",
-		 "Eevee dodges the opponent's attack!"
+		 "Eevee uses Bite!"
+	 ],
+
+	 "opponentfight":[
+		"Eevee takes damage from the opponent!",
+		"Eevee is hit by the opponent's move!",
+		"Eevee is attacked by the opponent and takes damage!"
+	 ],
+
+	 "dodge":[
+		 "Eevee dodges the attack and counters!",
+		 "Eevee manages to dodge and counterattacks!",
+		 "Eevee dodges the move and the opponent hurts itself!"
 	 ]
 
 }
