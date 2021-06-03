@@ -2,6 +2,12 @@
 	display: flex;
 }
 
+#chatimg{
+	width: 225px;
+	height: auto;
+	border-radius: 14px;
+}
+
 .chat-widget {
 	overflow: hidden;
 	margin: 0px auto;

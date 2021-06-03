@@ -6,34 +6,34 @@ class EeveeBot {
 
 		this.eeveePics =
 		[
-			"<img src = 'https://cdn.vox-cdn.com/thumbor/-Qqhvrhbw5vmjHT3GHLhIg-feno=/0x0:1280x720/1200x0/filters:focal(0x0:1280x720):no_upscale()/cdn.vox-cdn.com/uploads/chorus_asset/file/13434617/Switch_PokemonLetsGo_090618_PressKit_SCRN_11_bmp_jpgcopy.jpg' width = '225px' height = 'auto'</img>",
-			"<img src = 'https://www.telegraph.co.uk/content/dam/gaming/2018/10/15/Pokemon_Let-s_Go_screenshot_6_trans_NvBQzQNjv4BqNJjoeBT78QIaYdkJdEY4CnGTJFJS74MYhNY6w3GNbO8.png' width = '225px' height = 'auto'</img>",
-			"<img src = 'https://www.vgr.com/wp-content/uploads/2018/06/Pokemon-Lets-Go-Eevee.jpg' width = '225px' height = 'auto'</img>",
-			"<img src = 'https://www.vgr.com/wp-content/uploads/2018/06/Pokemon-Lets-Go-Eevee.jpg' width = '225px' height = 'auto'</img>"
+			"<img id='chatimg' src = 'https://cdn.vox-cdn.com/thumbor/-Qqhvrhbw5vmjHT3GHLhIg-feno=/0x0:1280x720/1200x0/filters:focal(0x0:1280x720):no_upscale()/cdn.vox-cdn.com/uploads/chorus_asset/file/13434617/Switch_PokemonLetsGo_090618_PressKit_SCRN_11_bmp_jpgcopy.jpg' </img>",
+			"<img id='chatimg' src = 'https://www.telegraph.co.uk/content/dam/gaming/2018/10/15/Pokemon_Let-s_Go_screenshot_6_trans_NvBQzQNjv4BqNJjoeBT78QIaYdkJdEY4CnGTJFJS74MYhNY6w3GNbO8.png' </img>",
+			"<img id='chatimg' src = 'https://www.vgr.com/wp-content/uploads/2018/06/Pokemon-Lets-Go-Eevee.jpg' width = '225px' height = 'auto'</img>",
+			"<img id='chatimg' src = 'https://www.vgr.com/wp-content/uploads/2018/06/Pokemon-Lets-Go-Eevee.jpg' width = '225px' height = 'auto'</img>"
 		]
 
 		this.highFive = [
-			"<img src = 'https://assets.gamepur.com/wp-content/uploads/2020/03/18001553/eevee-high-five-pokemon-lets-go.jpg' width = '225px' height = 'auto'</img>"
+			"<img id='chatimg' src = 'https://assets.gamepur.com/wp-content/uploads/2020/03/18001553/eevee-high-five-pokemon-lets-go.jpg'</img>"
 		]
 
 		this.shake = [
-			"<img src = 'https://cdn.vox-cdn.com/thumbor/komAhGx5taJzX_7IsEAxroQ73d4=/1400x0/filters:no_upscale()/cdn.vox-cdn.com/uploads/chorus_asset/file/11444987/Screen_Shot_2018_05_29_at_9.40.42_PM.png' width = '225px' height = 'auto'</img>"
+			"<img id='chatimg' src = 'https://cdn.vox-cdn.com/thumbor/komAhGx5taJzX_7IsEAxroQ73d4=/1400x0/filters:no_upscale()/cdn.vox-cdn.com/uploads/chorus_asset/file/11444987/Screen_Shot_2018_05_29_at_9.40.42_PM.png'</img>"
 		]
 
 		this.eat = [
-			"<img src = 'https://www.imore.com/sites/imore.com/files/styles/large/public/field/image/2020/08/lets-go-eevee-feeding.jpg' width = '225px' height = 'auto'</img>"
+			"<img id='chatimg' src = 'https://www.imore.com/sites/imore.com/files/styles/large/public/field/image/2020/08/lets-go-eevee-feeding.jpg' </img>"
 		]
 
 		this.win = [
-			"<img src = 'https://www.imore.com/sites/imore.com/files/styles/xlarge/public/field/image/2018/11/pokemon-lets-go-eevee-screen-bond.jpg' width = '225px' height = 'auto'</img>"
+			"<img id='chatimg' src = 'https://www.imore.com/sites/imore.com/files/styles/xlarge/public/field/image/2018/11/pokemon-lets-go-eevee-screen-bond.jpg' </img>"
 		]
 
 		this.lose = [
-			"<img src = 'https://poketouch.files.wordpress.com/2018/10/project_eevee_pokemon_lets_go_pikachu_and_lets_go_screenshot_of_sad_customized_eevee.jpg' width = '225px' height = 'auto'</img>"
+			"<img id='chatimg' src = 'https://poketouch.files.wordpress.com/2018/10/project_eevee_pokemon_lets_go_pikachu_and_lets_go_screenshot_of_sad_customized_eevee.jpg' </img>"
 		]
 
 		this.battle = [
-			"<img src = 'https://static1.thegamerimages.com/wordpress/wp-content/uploads/2020/07/Pokemon-Lets-Go-Eevee-Moves-Featured-Photo.jpg' width = '225px' height = 'auto'</img>"
+			"<img id='chatimg' src = 'https://static1.thegamerimages.com/wordpress/wp-content/uploads/2020/07/Pokemon-Lets-Go-Eevee-Moves-Featured-Photo.jpg' </img>"
 		]
 
 		this.grammar = tracery.createGrammar(eeveeGrammar)
@@ -43,6 +43,7 @@ class EeveeBot {
 	respondTo(s) {
 		let veeHP = document.getElementById('hp')
 		let opponentHP = document.getElementById('eHP')
+		let oHPWrapper = document.getElementById('opponentHP')
 
 
 		if(s.toLowerCase().includes("hello")){
@@ -87,11 +88,12 @@ class EeveeBot {
 		}
 
 		if(s.toLowerCase().includes("battle")){
+			oHPWrapper.style.display = "flex";
+
 			this.post("You and Eevee find a strong trainer!")
 			this.post(this.battle[0])
 
 			let finish = false
-
 
 			let interval = setInterval(() => {
 				this.battleTime -= 5
@@ -108,6 +110,7 @@ class EeveeBot {
 							veeHP.value = 50
 							opponentHP.value = 0
 							this.post(this.lose[0])
+							oHPWrapper.style.display ="none";
 						}
 						this.post("Eevee took too much damage and fainted!")
 						this.post("You have unfortunately lost, and give 500 Pokedollars to the trainer.")
@@ -115,6 +118,7 @@ class EeveeBot {
 						this.post("You revive Eevee with half its HP.")
 						veeHP.value = 50;
 						this.post(this.lose[0])
+						oHPWrapper.style.display ="none";
 					}
 
 					else if(opponentHP >= 100){
@@ -125,6 +129,7 @@ class EeveeBot {
 						veeHP.value = 100;
 						opponentHP.value = 0;
 						this.post(this.win[0])
+						oHPWrapper.style.display ="none";
 					}
 
 					else{
@@ -134,6 +139,7 @@ class EeveeBot {
 						veeHP.value += (100 - veeHP.value) / 2;
 						opponentHP.value = 0;
 						this.post(this.win[0])
+						oHPWrapper.style.display ="none";
 					}
 					finish = true
 				}
