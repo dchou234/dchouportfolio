@@ -113,7 +113,7 @@ class EeveeBot {
 							oHPWrapper.style.display ="none";
 						}
 						this.post("Eevee took too much damage and fainted!")
-						this.post("You have unfortunately lost, and give 500 Pokedollars to the trainer.")
+						this.post("You have unfortunately lost, and give 500 PokeDollars to the trainer.")
 						this.money -= 500
 						this.post("You revive Eevee with half its HP.")
 						veeHP.value = 50;
@@ -123,7 +123,7 @@ class EeveeBot {
 
 					else if(opponentHP >= 100){
 						this.post("Your opponent's Pokemon fainted!")
-						this.post("You won! The trainer gives you 700 Pokedollars.")
+						this.post("You won! The trainer gives you 700 PokeDollars.")
 						this.money += 700;
 						this.post("Eevee has been fully restored!")
 						veeHP.value = 100;
@@ -133,7 +133,7 @@ class EeveeBot {
 					}
 
 					else{
-						this.post("The battle is inconclusive! The trainer gives you 200 Pokedollars.")
+						this.post("The battle is inconclusive! The trainer gives you 200 PokeDollars.")
 						this.money += 200;
 						this.post("Eevee restores some HP.")
 						veeHP.value += (100 - veeHP.value) / 2;
