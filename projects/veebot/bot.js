@@ -8,8 +8,8 @@ class EeveeBot {
 		[
 			"<img id='chatimg' src = 'https://cdn.vox-cdn.com/thumbor/-Qqhvrhbw5vmjHT3GHLhIg-feno=/0x0:1280x720/1200x0/filters:focal(0x0:1280x720):no_upscale()/cdn.vox-cdn.com/uploads/chorus_asset/file/13434617/Switch_PokemonLetsGo_090618_PressKit_SCRN_11_bmp_jpgcopy.jpg' </img>",
 			"<img id='chatimg' src = 'https://www.telegraph.co.uk/content/dam/gaming/2018/10/15/Pokemon_Let-s_Go_screenshot_6_trans_NvBQzQNjv4BqNJjoeBT78QIaYdkJdEY4CnGTJFJS74MYhNY6w3GNbO8.png' </img>",
-			"<img id='chatimg' src = 'https://www.vgr.com/wp-content/uploads/2018/06/Pokemon-Lets-Go-Eevee.jpg' width = '225px' height = 'auto'</img>",
-			"<img id='chatimg' src = 'https://www.vgr.com/wp-content/uploads/2018/06/Pokemon-Lets-Go-Eevee.jpg' width = '225px' height = 'auto'</img>"
+			"<img id='chatimg' src = 'https://www.vgr.com/wp-content/uploads/2018/06/Pokemon-Lets-Go-Eevee.jpg' </img>",
+			"<img id='chatimg' src = 'https://media.pocketgamer.com/artwork/na-ytan/pokemon-lets-go-pikachu-switch-screenshot-eevee-smiling.jpg' </img>"
 		]
 
 		this.highFive = [
@@ -48,6 +48,7 @@ class EeveeBot {
 
 		if(s.toLowerCase().includes("hello")){
 			let chance = Math.floor(Math.random()*this.eeveePics.length)
+			console.log(chance)
 			this.post(this.grammar.flatten("#greeting#"))
 			return this.eeveePics[chance]
 		}
@@ -56,15 +57,19 @@ class EeveeBot {
 			if (this.razzBerries  <= 0)
 				return "No more razz berries, buy more."
 			this.razzBerries -= 1
-			this.post(this.grammar.flatten("#eating#"))
 			if(veeHP.value < 100){
-				this.post("Eevee's HP has been restored by 10!")
-				veeHP.value += 10
+				this.post(this.grammar.flatten("#eating#"))
+				this.post("Eevee's HP has been restored by 15!")
+				veeHP.value += 15
 				if(veeHP.value > 100){
 					veeHP.value = 100
 				}
+				return this.eat[0];
 			}
-			return this.eat[0]
+			else{
+				this.razzBerries += 1;
+			}
+			return "Eevee is already full!"
 		}
 
 
@@ -121,12 +126,12 @@ class EeveeBot {
 						oHPWrapper.style.display ="none";
 					}
 
-					else if(opponentHP >= 100){
+					else if(opponentHP.value >= 100){
 						this.post("Your opponent's Pokemon fainted!")
 						this.post("You won! The trainer gives you 700 PokeDollars.")
 						this.money += 700;
-						this.post("Eevee has been fully restored!")
-						veeHP.value = 100;
+						this.post("Eevee restores alot of HP!")
+						veeHP.value += (100 - veeHP.value)*0.75;
 						opponentHP.value = 0;
 						this.post(this.win[0])
 						oHPWrapper.style.display ="none";

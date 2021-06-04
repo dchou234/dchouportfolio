@@ -40,7 +40,7 @@ let eeveeGrammar = {
 		 "*nomnomnomnom*",
 		 "*vuivuivuivui*",
 		 "Eevee looks satisfied",
-		 "Eevee doesn't seem too interested"
+		 "Eevee eats the berry."
 	 ],
 
 	 "fighting":[
