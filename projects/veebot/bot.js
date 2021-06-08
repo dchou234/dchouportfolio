@@ -48,7 +48,7 @@ class EeveeBot {
 
 		if(s.toLowerCase().includes("hello")){
 			let chance = Math.floor(Math.random()*this.eeveePics.length)
-			console.log(chance)
+			//console.log(chance)
 			this.post(this.grammar.flatten("#greeting#"))
 			return this.eeveePics[chance]
 		}
